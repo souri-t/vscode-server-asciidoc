@@ -1,0 +1,28 @@
+{
+  "plugins": {
+    "@ynitto/asciidoc": true
+  },
+  "filters": {
+    "allowlist": true
+  },
+  "rules": {
+    "@textlint-ja/no-insert-dropping-sa": true,
+    "@textlint-ja/no-synonyms": true,
+    "ja-hiragana-fukushi": true,
+    "ja-hiragana-hojodoushi": true,
+    "ja-hiragana-keishikimeishi": true,
+    "ja-no-inappropriate-words": true,
+    "ja-no-orthographic-variants": true,
+    "jis-charset": true,
+    "no-hoso-kinshi-yogo": true,
+    "no-mixed-zenkaku-and-hankaku-alphabet": true,
+    "no-start-duplicated-conjunction": true,
+    "no-surrogate-pair": true,
+    "prefer-tari-tari": true,
+    "preset-ja-spacing": true,
+    "preset-ja-technical-writing": true,
+    "preset-japanese": true,
+    "spellcheck-tech-word": true,
+    "use-si-units": true
+  }
+}

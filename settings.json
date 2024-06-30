@@ -1,0 +1,9 @@
+{
+    "markdown-preview-enhanced.enablePlantUML": true,
+    "asciidoc.extensions.enableKroki": true,
+    "markdown-preview-enhanced.krokiServer": "",
+    "explorer.confirmDragAndDrop": false,
+    "hediet.vscode-drawio.resizeImages": null,
+    "markdown-preview-enhanced.codeBlockTheme": "vs.css",
+    "markdown-preview-enhanced.previewTheme": "github-light.css"
+}

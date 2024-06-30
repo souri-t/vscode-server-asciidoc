@@ -1,0 +1,13 @@
+version: '3'
+services:
+  code-server:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./workspace:/home/coder/workspace
+      - ./settings.json:/root/.local/share/code-server/User/settings.json
+      - ./.textlintrc.json:/home/coder/.textlintrc.json
+    environment:
+      - PASSWORD=password
+    container_name: vscode-server
