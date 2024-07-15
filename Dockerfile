@@ -1,5 +1,30 @@
+# ベースイメージとしてNode.jsを使用
+FROM node:22 AS build
+
+# 作業ディレクトリを設定
+WORKDIR /app
+
+# 必要なパッケージをインストールする
+RUN npm install -g vsce
+
+# GitHubからソースコードをクローン
+RUN git clone https://github.com/souri-t/VSCode-AsciidocBuilderExtension.git .
+
+# 依存関係をインストール
+RUN npm install
+
+# 拡張機能をビルド
+RUN npx vsce package
+
+# ------------------------------------------------------
 # ベースイメージとしてDebian Bookworm Slimを使用
 FROM debian:bookworm-slim
+
+# 作業ディレクトリを設定
+WORKDIR /app
+
+# ビルド成果物をコピー
+COPY --from=build /app/*.vsix .
 
 # 必要なツールのインストール
 RUN apt-get update && apt-get install -y \
@@ -38,6 +63,9 @@ RUN code-server --install-extension hediet.vscode-drawio
 # AsciidoctorとAsciidoctor-PlantUMLのインストール
 RUN apt-get install -y ruby
 RUN gem install asciidoctor asciidoctor-diagram asciidoctor-pdf
+
+# 前ステージでビルドした拡張機能をインストール
+RUN code-server --install-extension /app/asciidocdocumentbuilder-1.0.0.vsix
 
 # Node.jsとnpmのインストール
 RUN apt-get install -y npm
