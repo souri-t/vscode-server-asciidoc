@@ -141,4 +141,9 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+# Remove the following directories
+workspace/output/
+workspace/archive/
+workspace/.vscode/
+
 # End of https://www.toptal.com/developers/gitignore/api/node
