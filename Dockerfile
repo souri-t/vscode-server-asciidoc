@@ -21,7 +21,7 @@ RUN npx vsce package
 
 # ------------------------------------------------------
 # ベースイメージとしてDebian Bookworm Slimを使用
-FROM debian:bookworm-slim
+FROM node:22-bookworm-slim
 
 # 作業ディレクトリを設定
 WORKDIR /app
@@ -50,8 +50,7 @@ RUN echo -e '#!/bin/bash\n\njava -jar /usr/local/bin/plantuml.jar "$@"' > /usr/l
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 # 拡張機能のインストール
-RUN code-server --install-extension vscjava.vscode-java-pack && \
-    code-server --install-extension jebbs.plantuml
+RUN code-server --install-extension jebbs.plantuml
 
 # Markdown Preview Enhancedのインストール
 RUN code-server --install-extension shd101wyy.markdown-preview-enhanced
@@ -72,9 +71,6 @@ RUN gem install asciidoctor asciidoctor-diagram asciidoctor-pdf
 
 # 前ステージでビルドした拡張機能をインストール
 RUN code-server --install-extension /app/asciidocdocumentbuilder-1.0.0.vsix
-
-# Node.jsとnpmのインストール
-RUN apt-get install -y npm
 
 WORKDIR /home/coder
 COPY package.json /home/coder
