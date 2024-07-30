@@ -1,5 +1,8 @@
 # ベースイメージとしてNode.jsを使用
-FROM node:22 AS build
+FROM node:22-alpine3.19 AS build
+
+# 必要なパッケージをインストール
+RUN apk add git
 
 # 作業ディレクトリを設定
 WORKDIR /app
