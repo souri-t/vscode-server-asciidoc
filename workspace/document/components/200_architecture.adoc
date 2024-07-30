@@ -20,3 +20,11 @@ class Animal {
 class Cat extends Animal {
 }
 ----
+=== 構造
+[plantuml]
+----
+@startuml
+:ユーザー: -> (本を借りる)
+:ユーザー: -> (本を返却する)
+@enduml
+----

@@ -26,8 +26,8 @@
     "textlint-rule-use-si-units": "^2.0.0"
   },
   "scripts": {
-    "build.html": "asciidoctor -a stylesheet=style.css -r asciidoctor-diagram -o workspace/output/index.html workspace/index.adoc",
-    "lint": "npx textlint --config ./.textlintrc.json workspace/index.adoc ",
+    "build.html": "asciidoctor -a stylesheet=style.css -r asciidoctor-diagram -o workspace/output/index.html workspace/document/index.adoc",
+    "lint": "npx textlint --config ./.textlintrc.json workspace/document/index.adoc ",
     "output.delete": "rm -rf workspace/output/ && mkdir workspace/output",
     "output.archive": "mkdir -p workspace/archive && zip -r workspace/archive/output.zip workspace/output/",
     "build": "npm run output.delete && npm run build.html && npm run output.archive"
